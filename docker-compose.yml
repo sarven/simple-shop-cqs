@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+    nginx:
+        build: ./docker/nginx
+        ports:
+            - 80:80
+        volumes_from:
+            - php
+        links:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx:cached
+    php:
+        build: ./docker/php
+        working_dir: /var/www
+        ports:
+            - "9000:9000"
+        links:
+            - db
+        volumes:
+            - .:/var/www
+    db:
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=recruitment
+            - MYSQL_USER=recruitment
+            - MYSQL_PASSWORD=recruitment
