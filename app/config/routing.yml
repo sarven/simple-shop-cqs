@@ -1,3 +1,10 @@
-app:
-    resource: "@AppBundle/Controller/"
+shop:
+    resource: "@AppBundle/Controller/Shop"
     type:     annotation
+
+security:
+    resource: "@AppBundle/Controller/SecurityController.php"
+    type:     annotation
+
+logout:
+    path: /logout

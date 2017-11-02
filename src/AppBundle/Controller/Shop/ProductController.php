@@ -16,7 +16,7 @@ class ProductController extends Controller
      * @param int $page
      * @return Response
      *
-     * @Route("/{page}", defaults={"page" = 1})
+     * @Route("/{page}", requirements={"page" = "\d"}, defaults={"page" = 1})
      */
     public function indexAction(int $page): Response
     {

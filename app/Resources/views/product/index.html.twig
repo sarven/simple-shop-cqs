@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                Hi, {{ app.user.username }} <a href="{{ path('logout') }}" class="btn btn-danger">Logout</a>
+            {% else %}
+                <a href="{{ path('login') }}" class="btn btn-success">Login</a>
+            {% endif %}
+        </div>
+    </div>
     <div class="row">
-        <div class="s12">
+        <div class="col-md-12">
             <table class="products table">
                 <tr>
-                    <th>Nazwa</th>
-                    <th>Opis</th>
-                    <th>Cena</th>
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th>Price</th>
                 </tr>
                 {% for product in pagination %}
                     <tr>
