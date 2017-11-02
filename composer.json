@@ -29,7 +29,8 @@
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
         "doctrine/doctrine-fixtures-bundle": "^2.4",
-        "fzaninotto/faker": "^1.7"
+        "fzaninotto/faker": "^1.7",
+        "phpunit/phpunit": "^4.8"
     },
     "scripts": {
         "symfony-scripts": [

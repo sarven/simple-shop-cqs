@@ -1,15 +1,15 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Product;
 
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class Product
- * @package AppBundle\Entity
+ * @package AppBundle\Entity\Product
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Product\ProductRepository")
  * @ORM\Table(name="product")
  */
 class Product
@@ -27,7 +27,7 @@ class Product
      *
      * @ORM\Column(type="string")
      */
-    private $title;
+    private $name;
 
     /**
      * @var string
@@ -54,9 +54,9 @@ class Product
     /**
      * @return string
      */
-    public function getTitle(): string
+    public function getName(): string
     {
-        return $this->title;
+        return $this->name;
     }
 
     /**
@@ -77,18 +77,18 @@ class Product
 
     /**
      * Product constructor.
-     * @param string $title
+     * @param string $name
      * @param string $description
      * @param float $price
      */
     public function __construct(
-        string $title,
+        string $name,
         string $description,
         float $price
     )
     {
         $this->id = Uuid::uuid4();
-        $this->title = $title;
+        $this->name = $name;
         $this->description = $description;
         $this->price = $price;
     }
