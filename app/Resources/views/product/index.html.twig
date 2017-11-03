@@ -5,6 +5,7 @@
         <div class="panel-body">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 Hi, {{ app.user.username }} <a href="{{ path('logout') }}" class="btn btn-danger">Logout</a>
+                <a href="{{ path('admin.create_product') }}" class="btn btn-success">Create product</a>
             {% else %}
                 <a href="{{ path('login') }}" class="btn btn-success">Login</a>
             {% endif %}

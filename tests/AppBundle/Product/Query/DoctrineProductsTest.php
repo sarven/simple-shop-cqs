@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\AppBundle\Product\Query;
+namespace Tests\AppBundle\Product\Query;
 
 use AppBundle\Product\Query\DoctrineProducts;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * Class DoctrineProductsTest
- * @package tests\AppBundle\Product\Query
+ * @package Tests\AppBundle\Product\Query
  */
 class DoctrineProductsTest extends KernelTestCase
 {

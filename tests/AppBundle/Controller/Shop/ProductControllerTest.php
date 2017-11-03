@@ -1,14 +1,14 @@
 <?php
 
-namespace tests\AppBundle\Shop\Controller;
+namespace Tests\AppBundle\Shop\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Tests\AppBundle\Controller\WebTestCaseAbstract;
 
 /**
  * Class ProductControllerTest
- * @package tests\AppBundle\Shop\Controller
+ * @package Tests\AppBundle\Shop\Controller
  */
-class ProductControllerTest extends WebTestCase
+class ProductControllerTest extends WebTestCaseAbstract
 {
     /**
      * @test

@@ -2,6 +2,11 @@ shop:
     resource: "@AppBundle/Controller/Shop"
     type:     annotation
 
+admin:
+    prefix: /admin
+    resource: "@AppBundle/Controller/Admin"
+    type:     annotation
+
 security:
     resource: "@AppBundle/Controller/SecurityController.php"
     type:     annotation

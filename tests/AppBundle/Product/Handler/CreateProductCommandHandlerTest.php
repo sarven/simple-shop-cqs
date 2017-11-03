@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\AppBundle\Product\Handler;
+namespace Tests\AppBundle\Product\Handler;
 
 use AppBundle\Product\Command\CreateProductCommand;
 use AppBundle\Product\Exception\InvalidProductException;
@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
  * Class CreateProductCommandHandlerTest
- * @package tests\AppBundle\Product\Handler
+ * @package Tests\AppBundle\Product\Handler
  */
 class CreateProductCommandHandlerTest extends KernelTestCase
 {

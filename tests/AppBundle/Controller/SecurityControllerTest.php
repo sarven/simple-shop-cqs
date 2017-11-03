@@ -1,9 +1,13 @@
 <?php
 
-namespace tests\AppBundle\Controller;
+namespace Tests\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class SecurityControllerTest
+ * @package Tests\AppBundle\Controller
+ */
 class SecurityControllerTest extends WebTestCase
 {
     /**

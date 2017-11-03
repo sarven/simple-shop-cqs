@@ -26,9 +26,7 @@ final class CreateProductCommand
     public $description;
 
     /**
-     * @var string
-     *
-     * @Assert\Currency()
+     * @var float
      */
     public $price;
 }
