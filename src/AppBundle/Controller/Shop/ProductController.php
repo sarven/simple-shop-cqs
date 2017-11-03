@@ -20,13 +20,8 @@ class ProductController extends Controller
      */
     public function indexAction(int $page): Response
     {
-        $pagination = $this->get('knp_paginator')->paginate(
-            $this->get('repository.product')->createQueryBuilder('p'),
-            $page
-        );
-
         return $this->render('product/index.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $this->get('query.doctrine_products')->getPaginated($page, 10)
         ]);
     }
 }

@@ -17,12 +17,14 @@
                     <th>Name</th>
                     <th>Desc</th>
                     <th>Price</th>
+                    <th>Created at</th>
                 </tr>
                 {% for product in pagination %}
                     <tr>
                         <td>{{ product.name }}</td>
                         <td>{{ product.description }}</td>
                         <td>{{ product.price|number_format(2) }} zł</td>
+                        <td>{{ product.createdAt|date('Y-m-d H:i') }}</td>
                     </tr>
                 {% endfor %}
             </table>

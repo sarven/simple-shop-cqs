@@ -44,6 +44,13 @@ class Product
     private $price;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
      * @return string
      */
     public function getId(): string
@@ -76,6 +83,14 @@ class Product
     }
 
     /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
      * Product constructor.
      * @param string $name
      * @param string $description
@@ -91,6 +106,7 @@ class Product
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
+        $this->createdAt = new \DateTime();
     }
 }
 

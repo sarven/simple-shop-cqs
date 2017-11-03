@@ -1,15 +1,12 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/service_container.html
-parameters:
-#    parameter_name: value
-
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-
     repository.product:
         class: AppBundle\Repository\Product\ProductRepository
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:
             - AppBundle\Entity\Product\Product
+
+    query.doctrine_products:
+        class: AppBundle\Product\Query\DoctrineProducts
+        arguments:
+            - "@repository.product"
+            - "@knp_paginator"
