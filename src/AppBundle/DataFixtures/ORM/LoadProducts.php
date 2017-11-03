@@ -25,7 +25,7 @@ class LoadProducts extends AbstractFixture
         for ($i = 0; $i < self::COUNT; $i++) {
             $product = new Product(
                 $faker->title,
-                substr($faker->paragraph(3), 0, 100),
+                $faker->paragraph(3),
                 random_int(1, 1000) + random_int(0, 100) / 100
             );
             $manager->persist($product);
