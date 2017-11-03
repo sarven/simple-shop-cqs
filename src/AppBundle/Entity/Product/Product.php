@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity\Product;
 
+use AppBundle\Product\Command\CreateProductCommand;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
 
@@ -107,6 +108,19 @@ class Product
         $this->description = $description;
         $this->price = $price;
         $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @param CreateProductCommand $createProductCommand
+     * @return Product
+     */
+    public static function fromCreateProductCommand(CreateProductCommand $createProductCommand): Product
+    {
+        return new self(
+            $createProductCommand->name,
+            $createProductCommand->description,
+            $createProductCommand->price
+        );
     }
 }
 

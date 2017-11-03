@@ -10,3 +10,11 @@ services:
         arguments:
             - "@repository.product"
             - "@knp_paginator"
+
+    handler.create_product:
+        class: AppBundle\Product\Handler\CreateProductCommandHandler
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@validator"
+        tags:
+            - { name: tactician.handler, command: AppBundle\Product\Command\CreateProductCommand }
