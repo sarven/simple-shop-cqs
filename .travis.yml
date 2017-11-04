@@ -5,7 +5,7 @@ services:
 
 php:
     - 7.1
-    
+
 cache:
     directories:
         - $HOME/.composer/cache/files
@@ -14,7 +14,7 @@ before-install:
     - composer self-update
 
 install:
-    - composer install --no-dev --optimize-autoloader
+    - composer install --optimize-autoloader
     - cp app/config/parameters.yml.travis app/config/parameters.yml
     - php bin/console doctrine:database:create --env=test
     - php bin/console doctrine:schema:create --env=test
