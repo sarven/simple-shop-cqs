@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    dev_delivery_address: me@example.com
+    product_notification_recipient: fake@example.com
+    email_from: test@test.com

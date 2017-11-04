@@ -4,8 +4,10 @@ namespace AppBundle\Product\Handler;
 
 use AppBundle\Entity\Product\Product;
 use AppBundle\Product\Command\CreateProductCommand;
+use AppBundle\Product\Event\ProductCreatedEvent;
 use AppBundle\Product\Exception\InvalidProductException;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
@@ -25,17 +27,25 @@ final class CreateProductCommandHandler
     private $validator;
 
     /**
+     * @var EventDispatcherInterface
+     */
+    private $eventDispatcher;
+
+    /**
      * CreateProductCommandHandler constructor.
      * @param EntityManagerInterface $entityManager
      * @param ValidatorInterface $validator
+     * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         EntityManagerInterface $entityManager,
-        ValidatorInterface $validator
+        ValidatorInterface $validator,
+        EventDispatcherInterface $eventDispatcher
     )
     {
         $this->entityManager = $entityManager;
         $this->validator = $validator;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -54,5 +64,6 @@ final class CreateProductCommandHandler
 
         $this->entityManager->persist($product);
         $this->entityManager->flush();
+        $this->eventDispatcher->dispatch(ProductCreatedEvent::NAME, new ProductCreatedEvent($product));
     }
 }

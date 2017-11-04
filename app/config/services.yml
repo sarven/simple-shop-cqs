@@ -16,5 +16,20 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@validator"
+            - "@event_dispatcher"
         tags:
             - { name: tactician.handler, command: AppBundle\Product\Command\CreateProductCommand }
+
+    listener.product_created:
+        class: AppBundle\Product\Listener\ProductCreatedListener
+        arguments:
+            - "@notification.sender"
+            - "%product_notification_recipient%"
+        tags:
+            - { name: kernel.event_listener, event: product.created, method: onProductCreatedAction }
+
+    notification.sender:
+        class: AppBundle\Notification\Sender\NotificationSender
+        arguments:
+            - "@mailer"
+            - "%email_from%"
