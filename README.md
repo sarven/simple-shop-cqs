@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sarven/simple-shop-cqs.svg?branch=master)](https://travis-ci.org/sarven/simple-shop-cqs)
+
 1. Postaw nowy projekt z uzyciem symfony 3.2
 2. Przygotuj (bardzo) prosty sklep, korzystajac z symfony i doctrine jako orm do bazy danych
 3. Wymagania funkcjonalne:
